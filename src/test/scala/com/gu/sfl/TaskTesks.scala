@@ -45,17 +45,16 @@ object TaskTesks {
          |		"read": false
          | }
          | ${addArticle}
-
-
+         | ]
          |}
-         """
+         """.stripMargin
        body
 
     }
 
     val updateArticlesTask = exec(
       http("UpdateArticlesTasks")
-         .post("/syncedPrefs/me")
+         .post("/syncedPrefs/me/savedArticles")
          .header("content-type", "application/json")
          .body(StringBody(postBody))
          .asJSON
